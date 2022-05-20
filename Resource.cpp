@@ -1,14 +1,14 @@
 #include "Resource.h"
 #include <iostream>
 
-Resource::Resource(int health){
-    this->health = health;
+Resource::Resource(Manager* manager, int health)
+: Entity(manager, health)
+{
+    //Maybe set regen here?
 }
 
-void Resource::Act(){
-    this->health -= 1;
-    std::cout << "My health is " << health << std::endl;
-    //In subclass have animal AI for choosing between forage, fight, mate
+void Resource::Act(bool print){
+    Entity::Act(print);
     //Have plant Ai for... being eaten? Maybe seed/mate decisions
     
 }

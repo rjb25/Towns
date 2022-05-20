@@ -1,25 +1,29 @@
 #include <iostream>
 #include <string>
 #include "Entity.h"
+#include "Creature.h"
+#include "Resource.h"
+#include <stdlib.h>
 #include <vector>
 
 int
 main(int argc, char const* argv[]) {
-    std::cout << "hey" << std::endl;
-    std::vector<Entity*> entities;
-    entities.push_back(new Entity(40));
-    entities.push_back(new Entity(50));
-    entities.push_back(new Entity(60));
+    Manager * manager = new Manager(3,3);
     bool running = true;
-    std::string stop = "";
+    int times = 1;
     while(running){
-        for(int i = 0; i < entities.size(); i++){
-            entities[i]->Act();
+        std::cout << "Run how many times? (Stop = 0)" << std::endl;
+        std::cin >> times;
+        if(times == 0){
+            running = false;
         }
-        std::cout << "Stop? (y)" << std::endl;
-        std::cin >> stop;
-        if(stop == "y"){
-            running == false;
+        for(int time = 0; time < times; time++){
+            for(int category = 0; category < manager->entities.size(); category++){
+                for(int i = 0; i < manager->entities[category].size(); i++){
+                    manager->entities[category][i]->Act(true);
+                }
+            }
+            manager->CleanDead();
         }
     }
     return 0;

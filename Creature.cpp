@@ -1,14 +1,30 @@
-#include "Entity.h"
+#include "Creature.h"
+#include "Manager.h"
 #include <iostream>
+#include <stdlib.h>
 
-Entity::Entity(int health){
-    this->health = health;
+Creature::Creature(Manager * manager, int health,int attack)
+: Entity(manager, health)
+{
+    this->attack = attack;
+    //Maybe set Damage here?
 }
 
-void Entity::Act(){
-    this->health -= 1;
-    std::cout << "My health is " << health << std::endl;
-    //In subclass have animal AI for choosing between forage, fight, mate
-    //Have plant Ai for... being eaten?
-    
+void Creature::Act(bool print){
+    Entity::Act(print);
+    int choice = std::rand()%3;
+    switch(choice){
+        //Forage
+        case 0:
+            break;
+        //Attack
+        case 1:
+            break;
+        //Mate
+        case 2:
+            break;
+        default:
+            std::cout << "Undefined choice" << std::endl;
+            break;
+    }
 }

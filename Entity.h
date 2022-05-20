@@ -1,11 +1,12 @@
-#ifndef DATE_H
-#define DATE_H
+#ifndef ENTITY_H
+#define ENTITY_H
+#include "Manager.h"
 
 class Entity {
-    private:
-        int health;
     public:
-        Entity(int health);
-        void Act();
+        Manager * manager;
+        int health;
+        Entity(Manager * manager, int health);
+        void Act(bool print);
 };
 #endif

@@ -1,10 +1,15 @@
 #include "Entity.h"
 #include <iostream>
 
-Entity::Entity(int health){
+Entity::Entity(Manager * manager, int health){
+    this->manager = manager;
     this->health = health;
 }
 
-void Entity::Act(){
-    std::cout << "My health is " << health << std::endl;
+void Entity::Act(bool print){
+    this->health -= 1;
+    if(print){
+        std::cout << "My health is " << health << std::endl;
+    }
+    //Base functions of things that exist 
 }

@@ -1,11 +1,12 @@
-#ifndef DATE_H
-#define DATE_H
+#ifndef RESOURCE_H
+#define RESOURCE_H
+#include "Entity.h"
+#include "Manager.h"
 
-class Entity {
-    private:
-        int health;
+class Resource : public Entity
+{
     public:
-        Entity(int health);
-        void Act();
+        Resource(Manager * manager, int health);
+        void Act(bool print);
 };
 #endif
