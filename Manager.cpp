@@ -1,4 +1,6 @@
 #include "Manager.h"
+#include "Creature.h"
+#include "Resource.h"
 #include <iostream>
 
 Manager::Manager(int numCreatures, int numResources){

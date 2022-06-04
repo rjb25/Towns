@@ -1,7 +1,7 @@
 #ifndef CREATURE_H
 #define CREATURE_H
-#include "Entity.h"
-
+class Entity;
+class Manager;
 class Creature : public Entity 
 {
     public:

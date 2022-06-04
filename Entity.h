@@ -1,7 +1,6 @@
 #ifndef ENTITY_H
 #define ENTITY_H
-#include "Manager.h"
-
+class Manager;
 class Entity {
     public:
         Manager * manager;

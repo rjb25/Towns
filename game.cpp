@@ -3,6 +3,7 @@
 #include "Entity.h"
 #include "Creature.h"
 #include "Resource.h"
+#include "Manager.h"
 #include <stdlib.h>
 #include <vector>
 

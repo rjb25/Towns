@@ -1,4 +1,6 @@
 #include "Resource.h"
+#include "Entity.h"
+#include "Manager.h"
 #include <iostream>
 
 Resource::Resource(Manager* manager, int health)

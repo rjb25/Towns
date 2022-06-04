@@ -1,10 +1,9 @@
 #ifndef MANAGER_H
 #define MANAGER_H
 #include <vector>
-#include "Entity.h"
-#include "Creature.h"
-#include "Resource.h"
-
+class Entity;
+class Creature;
+class Resource;
 class Manager {
     public:
         std::vector<std::vector<Entity*>> entities;

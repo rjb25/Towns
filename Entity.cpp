@@ -1,4 +1,5 @@
 #include "Entity.h"
+#include "Manager.h"
 #include <iostream>
 
 Entity::Entity(Manager * manager, int health){
