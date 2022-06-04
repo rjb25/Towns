@@ -24,7 +24,6 @@ main(int argc, char const* argv[]) {
                     manager->entities[category][i]->Act(true);
                 }
             }
-            manager->CleanDead();
         }
     }
     return 0;
