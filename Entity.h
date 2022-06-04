@@ -6,6 +6,6 @@ class Entity {
         Manager * manager;
         int health;
         Entity(Manager * manager, int health);
-        void Act(bool print);
+        virtual void Act(bool print);
 };
 #endif

@@ -1,5 +1,4 @@
 #include "Creature.h"
-#include "Entity.h"
 #include "Manager.h"
 #include <iostream>
 #include <stdlib.h>
