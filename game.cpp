@@ -19,11 +19,10 @@ main(int argc, char const* argv[]) {
             running = false;
         }
         for(int time = 0; time < times; time++){
-            for(int category = 0; category < manager->entities.size(); category++){
-                for(int i = 0; i < manager->entities[category].size(); i++){
-                    manager->entities[category][i]->Act(true);
-                }
+            for(int i = 0; i < manager->entities.size(); i++){
+                manager->entities[i]->Act(true);
             }
+            manager->CleanDead();
         }
     }
     return 0;

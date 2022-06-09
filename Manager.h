@@ -6,8 +6,14 @@ class Creature;
 class Resource;
 class Manager {
     public:
-        std::vector<std::vector<Entity*>> entities;
+        std::vector<Entity*> creatures;
+        std::vector<Entity*> resources;
+        std::vector<Entity*> entities;
         Manager(int numCreatures, int numResources);
+
+        void GetResources();
+        void GetCreatures();
+        void GetEntities();
         void CleanDead();
 };
 #endif

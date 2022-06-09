@@ -11,7 +11,5 @@ void Entity::Act(bool print){
     if(print){
         std::cout << "My health is " << health << std::endl;
     }
-    this->health -= 1;
-    manager->CleanDead();
     //Base functions of things that exist 
 }

@@ -12,6 +12,7 @@ Creature::Creature(Manager * manager, int health,int attack)
 
 void Creature::Act(bool print){
     Entity::Act(print);
+    this->health -= 1;
     int choice = std::rand()%3;
     switch(choice){
         //Forage
