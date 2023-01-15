@@ -12,12 +12,21 @@ Creature::Creature(Manager * manager, int health,int attack)
 
 void Creature::Act(bool print){
     Entity::Act(print);
-    this->health -= 1;
-    int choice = std::rand()%3;
-    switch(choice){
+    health -= 1;
+    int action = std::rand()%3;
+    switch(action){
         //Forage
         case 0:
+            {
+                manager->CleanDead(manager->resources);
+                if(manager->resources.size() > 0){
+                    int target = std::rand()%manager->resources.size();
+                    manager->resources[target]->health-=attack;
+                    health += attack;
+                }
+
             break;
+            }
         //Attack
         case 1:
             break;

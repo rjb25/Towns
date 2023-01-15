@@ -11,9 +11,6 @@ class Manager {
         std::vector<Entity*> entities;
         Manager(int numCreatures, int numResources);
 
-        void GetResources();
-        void GetCreatures();
-        void GetEntities();
-        void CleanDead();
+        void CleanDead(std::vector<Entity*> & group);
 };
 #endif

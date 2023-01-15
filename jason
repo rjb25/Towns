@@ -214,11 +214,11 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 14 - ((13 * winheight(0) + 38) / 76)
+let s:l = 12 - ((11 * winheight(0) + 38) / 76)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-14
+12
 normal! 05|
 lcd ~/Towns
 wincmd w
@@ -480,12 +480,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 19 - ((18 * winheight(0) + 38) / 76)
+let s:l = 22 - ((21 * winheight(0) + 38) / 76)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-19
-normal! 05|
+22
+normal! 028|
 wincmd w
 argglobal
 if bufexists("~/Towns/Creature.h") | buffer ~/Towns/Creature.h | else | edit ~/Towns/Creature.h | endif
@@ -745,12 +745,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 14 - ((13 * winheight(0) + 38) / 76)
+let s:l = 15 - ((14 * winheight(0) + 38) / 76)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-14
-normal! 020|
+15
+normal! 0
 lcd ~/Towns
 wincmd w
 argglobal
@@ -886,6 +886,7 @@ normal! zt
 normal! 07|
 lcd ~/Towns
 wincmd w
+3wincmd w
 exe 'vert 1resize ' . ((&columns * 46 + 140) / 281)
 exe 'vert 2resize ' . ((&columns * 46 + 140) / 281)
 exe 'vert 3resize ' . ((&columns * 46 + 140) / 281)
@@ -1026,12 +1027,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 4 - ((3 * winheight(0) + 38) / 76)
+let s:l = 16 - ((15 * winheight(0) + 38) / 76)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-4
-normal! 011|
+16
+normal! 013|
 lcd ~/Towns
 tabnext
 edit ~/Towns/Manager.h
@@ -1173,12 +1174,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 3 - ((2 * winheight(0) + 38) / 76)
+let s:l = 14 - ((13 * winheight(0) + 38) / 76)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-3
-normal! 017|
+14
+normal! 046|
 lcd ~/Towns
 wincmd w
 argglobal
@@ -1306,27 +1307,27 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 27 - ((26 * winheight(0) + 38) / 76)
+let s:l = 21 - ((20 * winheight(0) + 38) / 76)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-27
-normal! 0
+21
+normal! 013|
 lcd ~/Towns
 wincmd w
 exe 'vert 1resize ' . ((&columns * 140 + 140) / 281)
 exe 'vert 2resize ' . ((&columns * 140 + 140) / 281)
-tabnext 3
+tabnext 1
 set stal=1
 badd +1 ~/Towns/Entity.cpp
 badd +1 ~/Towns/Creature.cpp
-badd +1 ~/Towns/game.cpp
+badd +0 ~/Towns/game.cpp
+badd +3 ~/Towns/Manager.h
 badd +1 ~/Towns/Entity.h
 badd +2 ~/Towns/Creature.h
 badd +1 ~/Towns/Resource.cpp
-badd +0 ~/Towns/Resource.h
-badd +0 ~/Towns/Manager.cpp
-badd +0 ~/Towns/Manager.h
+badd +1 ~/Towns/Resource.h
+badd +1 ~/Towns/Manager.cpp
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
@@ -1338,6 +1339,7 @@ if filereadable(s:sx)
   exe "source " . fnameescape(s:sx)
 endif
 let &so = s:so_save | let &siso = s:siso_save
+nohlsearch
 doautoall SessionLoadPost
 unlet SessionLoad
 " vim: set ft=vim :

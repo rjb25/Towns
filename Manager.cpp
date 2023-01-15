@@ -17,16 +17,10 @@ Manager::Manager(int numCreatures, int numResources){
     }
 }
 
-void Manager::GetResources(){
-}
-void Manager::GetCreatures(){
-}
-void Manager::GetEntities(){
-}
-void Manager::CleanDead(){
-    for(int i = 0; i < entities.size(); i++){
-        if(entities[i]->health <= 0){
-            entities.erase(entities.begin()+i);
+void Manager::CleanDead(std::vector<Entity*> & group){
+    for(int i = 0; i < group.size(); i++){
+        if(group[i] == NULL || group[i]->health <= 0){
+            group.erase(group.begin()+i);
             i--;
         }
     }
