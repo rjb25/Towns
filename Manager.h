@@ -6,11 +6,13 @@ class Creature;
 class Resource;
 class Manager {
     public:
-        std::vector<Entity*> creatures;
-        std::vector<Entity*> resources;
         std::vector<Entity*> entities;
         Manager(int numCreatures, int numResources);
-
-        void CleanDead(std::vector<Entity*> & group);
+        int availablePriority = 0;
+        void CleanDead();
+        int Add();
+        void Remove(int priority);
+        void Act(bool log);
+        std::vector<Entity*> GetResources(std::vector<Entity*> & group);
 };
 #endif

@@ -8,7 +8,7 @@ class Manager;
 class Creature : public Entity 
 {
     public:
-        int attack = 1;
+        int attack;
         Creature(Manager * manager, int health, int attack);
         void Act(bool print);
 };

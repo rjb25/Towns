@@ -1,4 +1,5 @@
 #include "Creature.h"
+#include "Resource.h"
 #include "Manager.h"
 #include <iostream>
 #include <stdlib.h>
@@ -13,16 +14,23 @@ Creature::Creature(Manager * manager, int health,int attack)
 void Creature::Act(bool print){
     Entity::Act(print);
     health -= 1;
-    int action = std::rand()%3;
+    int action = 0;//std::rand()%3;
     switch(action){
         //Forage
         case 0:
             {
-                manager->CleanDead(manager->resources);
-                if(manager->resources.size() > 0){
-                    int target = std::rand()%manager->resources.size();
-                    manager->resources[target]->health-=attack;
-                    health += attack;
+                std::vector<Entity*> resources = manager->GetResources(manager->entities);
+                if(resources.size() > 0){
+                    int target = std::rand()%resources.size();
+                    Entity* resource = resources[target];
+                    if(resource->health > 0){
+                        resource->health-=attack;
+                        if(resource->health > attack){
+                            health += attack;
+                        }else{
+                            health += resource->health;
+                        }
+                    }
                 }
 
             break;

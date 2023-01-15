@@ -5,6 +5,7 @@ class Entity {
     public:
         Manager * manager;
         int health;
+        int priority;
         Entity(Manager * manager, int health);
         virtual void Act(bool print);
 };

@@ -5,6 +5,7 @@
 Entity::Entity(Manager * manager, int health){
     this->manager = manager;
     this->health = health;
+    this->priority = manager->Add();
 }
 
 void Entity::Act(bool print){
