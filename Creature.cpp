@@ -14,7 +14,8 @@ Creature::Creature(Manager * manager, int health,int attack)
 void Creature::Act(bool print){
     Entity::Act(print);
     health -= 1;
-    int action = 0;//std::rand()%3;
+    //AI
+    int action = std::rand()%3;
     switch(action){
         //Forage
         case 0:
@@ -35,12 +36,33 @@ void Creature::Act(bool print){
 
             break;
             }
-        //Attack
+            //Attack
         case 1:
+            {
+            std::vector<Entity*> creatures = manager->Exclude(manager->GetCreatures(manager->entities), priority);
+            if(creatures.size() > 0){
+                int target = std::rand()%creatures.size();
+                Creature* creature = dynamic_cast<Creature*>(creatures[target]);
+                health -= creature->attack;
+                creature->health -= attack;
+                health += attack;
+            }
             break;
-        //Mate
+            }
+            //Mate
         case 2:
+            {
+                std::vector<Entity*> creatures = manager->Exclude(manager->GetCreatures(manager->entities), priority);
+                if(creatures.size() > 0){
+                    int target = std::rand()%creatures.size();
+                    Entity* creature = creatures[target];
+                    if(creature->health > 0 && health > 15){
+                        health-=10;
+                        manager->SpawnCreature();
+                    }
+                }
             break;
+            }
         default:
             std::cout << "Undefined choice" << std::endl;
             break;

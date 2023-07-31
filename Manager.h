@@ -13,6 +13,10 @@ class Manager {
         int Add();
         void Remove(int priority);
         void Act(bool log);
-        std::vector<Entity*> GetResources(std::vector<Entity*> & group);
+        std::vector<Entity*> GetResources(std::vector<Entity*> group);
+        std::vector<Entity*> GetCreatures(std::vector<Entity*> group);
+        std::vector<Entity*> Exclude(std::vector<Entity*> group, int priority);
+        void SpawnCreature();
+        void SpawnResource();
 };
 #endif
